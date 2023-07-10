@@ -1,0 +1,35 @@
+---
+export interface Props {
+  label: string
+}
+
+const { label } = Astro.props
+---
+
+<section class="w-full border-y-3 border-primary py-16">
+  <p class="sr-only">
+    Marquee Ticker Block that repeats "{label}"
+  </p>
+  <ul class="flex w-full items-center overflow-hidden" aria-hidden="true">
+    {
+      Array.from(Array(10)).map(() => (
+        <li class="animation-marquee flex items-center gap-10 whitespace-nowrap pr-10 font-sans text-md leading-none text-primary">
+          <span>•</span>
+          <span>{label}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .animation-marquee {
+    animation: marquee 5s linear infinite;
+  }
+
+  @keyframes marquee {
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>

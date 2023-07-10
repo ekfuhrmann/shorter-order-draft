@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets'
+
+import trayTop from '../assets/images/tray-top.png'
+import trayRepeat from '../assets/images/tray-repeat.png'
+import smileSvg from '../assets/images/smile.svg?raw'
+---
+
+<header class="flex bg-checkered bg-top">
+  <div class="relative mx-auto mt-56 flex w-full max-w-5xl flex-col pb-120">
+    <div
+      class="relative z-10 box-content px-[12vw] pt-[12vw] text-center text-white lg:px-[100px] lg:pt-120"
+    >
+      <div class="mx-auto h-40 w-1/2">
+        <Fragment set:html={smileSvg} />
+      </div>
+      <h1 class="mt-40 font-sans text-xl font-bold leading-none">
+        Group food orders made easy
+      </h1>
+      <p class="mt-24 text-md font-bold">
+        Using AI assisted choices to make deciding what to eat a snap.
+      </p>
+    </div>
+    <div class="absolute inset-0 flex w-full flex-col">
+      <Image
+        src={trayTop}
+        alt="A classic looking red plastic food tray like you'd find in a food court."
+        class="mx-auto w-full object-cover"
+      />
+      <div
+        style={`background-image: url(${trayRepeat.src});`}
+        class="h-full w-full bg-contain bg-repeat-y"
+        aria-hidden="true"
+      >
+      </div>
+    </div>
+  </div>
+</header>

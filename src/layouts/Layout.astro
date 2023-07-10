@@ -1,0 +1,70 @@
+---
+export interface Props {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="stylesheet" href="https://use.typekit.net/pgm3sta.css" />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+
+    <!-- Google Tag Manager -->
+    <!-- prettier-ignore -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V7V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>
+      // prettier-ignore
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5V7V');
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  body {
+    @apply bg-secondary font-serif text-sm font-bold;
+  }
+
+  svg {
+    @apply h-full w-full fill-current;
+  }
+
+  .wrapper {
+    @apply mx-auto max-w-6xl px-32;
+  }
+
+  .wrapper-lg {
+    @apply mx-auto max-w-8xl px-32;
+  }
+
+  .rich-text {
+    @apply text-primary;
+
+    h2 {
+      @apply mb-16 text-lg;
+    }
+
+    p {
+      & + p {
+        @apply mt-24;
+      }
+    }
+  }
+</style>

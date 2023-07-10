@@ -1,0 +1,33 @@
+---
+---
+
+<section class="border-y-3 border-primary bg-white pt-40">
+  <h2 class="wrapper text-center text-lg text-primary">
+    When hunger strikes and you can’t decide
+  </h2>
+  <p
+    class="mask-border wrapper mx-auto -mt-48 block max-w-6xl translate-y-88 bg-primary py-56 text-center text-md text-white"
+  >
+    We have to make a lot of decisions every day. From work to family to
+    financial, it can all be a little overwhelming. How can we use AI to help
+    take at least one of those decisions off your plate?
+  </p>
+</section>
+
+<style is:inline>
+  .mask-border {
+    -webkit-mask-box-image: url('./wave-border.png') 30 fill / 20px / 0px round;
+    mask-border: url('./wave-border.png') 30 fill / 20px / 0px round;
+  }
+
+  /*
+    Firefox does not support mask borders so
+    we help it degrade gracefully
+  */
+  @supports not (-webkit-mask-box-image: none) {
+    .mask-border {
+      border-radius: 24px;
+      width: calc(100% - 64px);
+    }
+  }
+</style>
